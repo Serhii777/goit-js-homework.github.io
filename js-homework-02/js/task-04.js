@@ -1,5 +1,14 @@
+const string = '';
+
 const formatString = function (string) {
-   // твой код
+   const array = string.split('');
+   console.log(array.length);
+
+   if (array.length > 40) {
+      array.splice(40, 39, '...');
+      return array.join('');
+   }
+   return array.join('');
 };
 
 /*
