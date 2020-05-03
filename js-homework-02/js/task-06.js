@@ -1,9 +1,9 @@
 let input = '';
 let numbers = [];
 let total = 0;
-let message = 'Общая сумма чисел равна: ';
-let incorrectInput = 'Было введено не число, попробуйте еще раз';
-let errorMessage = 'Ввод прекращен пользователем';
+const message = 'Общая сумма чисел равна: ';
+const incorrectInput = 'Было введено не число, попробуйте еще раз';
+const cancelMessage = 'Ввод прекращен пользователем';
 
 for (; input !== null; ) {
    input = prompt('Введите число', 0);
@@ -23,5 +23,5 @@ for (; input !== null; ) {
 for (let number of numbers) {
    total += number;
 }
-console.log(errorMessage);
+console.log(cancelMessage);
 console.log(`${message}${total}`);
