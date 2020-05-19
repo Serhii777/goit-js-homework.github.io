@@ -1,9 +1,9 @@
 class User {
-   constructor(nameUser) {
-      const values = Object.values(nameUser);
-      this.name = values[0];
-      this.age = values[1];
-      this.followers = values[2];
+   constructor({ name, age, followers }) {
+      // const values = Object.values(nameUser);
+      this.name = name;
+      this.age = age;
+      this.followers = followers;
    }
 }
 

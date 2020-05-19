@@ -1,7 +1,6 @@
-const Account = function (name) {
-   const values = Object.values(name);
-   this.login = values[0];
-   this.email = values[1];
+const Account = function ({login, email}) {
+   this.login = login;
+   this.email = email;
    console.log(this.login + ', ' + this.email);
 };
 
