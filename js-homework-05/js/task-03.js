@@ -2,23 +2,22 @@ class Storage {
    constructor(items) {
       this.items = items;
    }
+
+   getItems() {
+      return this.items;
+   }
+
+   addItem(newItem) {
+      this.newItem = newItem;
+      this.items.push(newItem);
+   }
+
+   removeItem(itemName) {
+      this.itemName = itemName;
+      this.items = this.items.filter(item => item !== itemName);
+      return this.items;
+   }
 }
-
-Storage.prototype.getItems = function () {
-   console.log(this.items);
-   return this.items;
-};
-
-Storage.prototype.addItem = function (newItem) {
-   this.newItem = newItem;
-   this.items.push(newItem);
-};
-
-Storage.prototype.removeItem = function (itemName) {
-   this.itemName = itemName;
-   this.items = this.items.filter(item => item !== itemName);
-   return this.items;
-};
 
 const storage = new Storage(['Нанитоиды', 'Пролонгер', 'Железные жупи', 'Антигравитатор']);
 

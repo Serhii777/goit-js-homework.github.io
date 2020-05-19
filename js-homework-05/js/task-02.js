@@ -1,6 +1,5 @@
 class User {
    constructor({ name, age, followers }) {
-      // const values = Object.values(nameUser);
       this.name = name;
       this.age = age;
       this.followers = followers;
