@@ -4,10 +4,8 @@ class Car {
     * который принимает объект-машину как параметр и выводит
     * в консоль значения свойств maxSpeed, speed, isOn, distance и price.
     */
-   static getSpecs(car) {
-      console.log(car);
-      // console.log(` maxSpeed: ${maxSpeed}, speed: ${speed}, isOn: ${isOn}, distance: ${distance}, price: ${price}`);
-      return car;
+   static getSpecs({ maxSpeed, speed, isOn, distance, price }) {
+      console.log(` maxSpeed: ${maxSpeed}, speed: ${speed}, isOn: ${isOn}, distance: ${distance}, price: ${price}`);
    }
    /*
     * Конструктор получает объект настроек.
@@ -47,6 +45,8 @@ class Car {
     */
    turnOn() {
       this.isOn = true;
+      this.speed = 0;
+      this.distance = 0;
    }
 
    /*
@@ -65,17 +65,10 @@ class Car {
     * не больше чем значение свойства maxSpeed
     */
    accelerate(value) {
-      console.log(value);
-      console.log(this.maxSpeed);
-      console.log(this.speed);
-      
-      
-      if (value < this.maxSpeed) {
-         this.speed = value;
-         this.speed = this.speed + value;
+      if (this.speed + value < this.maxSpeed) {
+         this.speed += value;
       }
       this.speed;
-      // this.speed = this.maxSpeed;
    }
 
    /*
@@ -84,7 +77,7 @@ class Car {
     */
 
    decelerate(value) {
-      if (this.speed - value >= 0) {
+      if (this.speed - value > 0) {
          this.speed -= value;
       }
       this.speed;
@@ -96,14 +89,10 @@ class Car {
     */
 
    drive(hours) {
-      console.log(this.speed);
-      
-      
       if (this.isOn) {
-         this.distance = hours * this.speed;
-         console.log(this.distance);
+         this.distance += hours * this.speed;
       }
-      this.distance; 
+      this.distance;
    }
 }
 
@@ -111,15 +100,18 @@ const mustang = new Car({ maxSpeed: 200, price: 2000 });
 
 mustang.turnOn();
 mustang.accelerate(50);
+mustang.accelerate(100);
 mustang.drive(2);
 
 Car.getSpecs(mustang);
 // maxSpeed: 200, speed: 50, isOn: true, distance: 100, price: 2000
 
 mustang.decelerate(20);
+mustang.decelerate(50);
 console.log(mustang);
 
 mustang.drive(1);
+mustang.drive(5);
 mustang.turnOff();
 
 Car.getSpecs(mustang);
