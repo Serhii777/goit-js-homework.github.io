@@ -6,8 +6,10 @@ const typeinputLimit = typeof inputLimit;
 
 inputRef.addEventListener('blur', event => {
    if (inputRef.value.length === inputLimit) {
-      inputRef.className = 'valid';
+      inputRef.classList.add('valid');
+      inputRef.classList.remove('invalid');
    } else {
-      inputRef.className = 'invalid';
+      inputRef.classList.add('invalid');
+      inputRef.classList.remove('valid');
    }
 });
