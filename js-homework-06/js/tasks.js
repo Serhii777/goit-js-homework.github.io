@@ -67,11 +67,13 @@ const totalSumm = users.reduce((total, user) => total + user.balance, 0);
 
 //! Задание 8 =====================================================================
 const getUsersWithFriend = (users, friendName) => {
-   return users.filter(user => user.friends.includes(friendName)).map(user => user.name);
+   // return users.filter(user => user.friends.includes(friendName)).map(user => user.name);
+   //* можно деструктеризировать, и будет так:
+   return users.filter(({ friends }) => friends.includes(friendName)).map(user => user.name);
 };
 
-// console.log(getUsersWithFriend(users, 'Briana Decker')); //* [ 'Sharlene Bush', 'Sheree Anthony' ]
-// console.log(getUsersWithFriend(users, 'Goldie Gentry')); //* [ 'Elma Head', 'Sheree Anthony' ]
+console.log(getUsersWithFriend(users, 'Briana Decker')); //* [ 'Sharlene Bush', 'Sheree Anthony' ]
+console.log(getUsersWithFriend(users, 'Goldie Gentry')); //* [ 'Elma Head', 'Sheree Anthony' ]
 
 //! Задание 9 ====================================================================
 const getNamesSortedByFriendsCount = users =>
@@ -90,4 +92,3 @@ const getSortedUniqueSkills = users =>
 
 // console.log(getSortedUniqueSkills(users));
 //* [ 'adipisicing', 'amet', 'anim', 'commodo', 'culpa', 'elit', 'ex', 'ipsum', 'irure', 'laborum', 'lorem', 'mollit', 'non', 'nostrud', 'nulla', 'proident', 'tempor', 'velit', 'veniam' ]
-
