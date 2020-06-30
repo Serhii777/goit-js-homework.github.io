@@ -1,7 +1,7 @@
-// import menu from '../templates/menu-items.hbs';
+import itemsTemplate from '../templates/menu-items.hbs';
 import menu from '../menu.json';
-// console.log(menu);
 
+const markup = itemsTemplate(menu);
 
 const menuRef = document.querySelector('.js-menu');
-// console.log(menuRef);
+menuRef.insertAdjacentHTML('beforeend', markup);
