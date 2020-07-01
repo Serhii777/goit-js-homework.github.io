@@ -23,7 +23,14 @@ function switchTheme(elem, first, second) {
   elem.classList.remove(`${second}`);
 }
 
-if (localStorage.getItem(`theme`) === `${Theme.DARK}`) {
-  document.body.classList.add(`${Theme.DARK}`);
-  document.body.querySelector('.js-switch-input').checked = true;
+const bodyRef = document.getElementsByTagName('body');
+if (bodyRef) {
+  initTheme();
+}
+
+function initTheme() {
+  if (localStorage.getItem(`theme`) === `${Theme.DARK}`) {
+    document.body.classList.add(`${Theme.DARK}`);
+    document.body.querySelector('.js-switch-input').checked = true;
+  }
 }
